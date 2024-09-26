@@ -4,7 +4,6 @@ import { config } from 'dotenv';
 import path from 'path';
 import "reflect-metadata"
 import { DataSource, DataSourceOptions } from "typeorm"
-import { TasksEntity } from './entitys/entitys';
 
 // load '.env'
 //----------------------------------------------------------------------------
@@ -20,9 +19,13 @@ const AppDataSource = new DataSource({
     username: process.env.DATABASE_USERNAME,
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_NAME,
-    synchronize: process.env.DATABASE_SYNC,
-    entities: [TasksEntity],
+    synchronize: false,
+    entities: [path.join(__dirname, "entitys/*.ts")],
+    migrations: [path.join(__dirname, "entitys/migrations/*.ts")],
+    migrationsTableName: "migrations_table",
   } as DataSourceOptions )
+
+  export { AppDataSource }
   
   AppDataSource.initialize()
   //------------------------------------------------------------------------
