@@ -1,3 +1,7 @@
-export const getHelloWorldMessage = (): string => {
-    return 'Hello, World!';
-};
+export class ServicesDefault {
+
+    static getHelloWorldMessage(message:string) {
+        return `${message}`;
+    }
+
+}

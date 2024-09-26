@@ -14,8 +14,11 @@ const app = express();
 const PORT = process.env.SERVER_PORT;
 
 app.use(express.json());
-app.use('/api', routes);
 
+// microservice main route
+app.use('/tasks', routes);
+
+// run server
 app.listen(PORT, () => {
     console.log(`*** SERVER RUNING ON PORT: ${PORT} ***`);
 });
