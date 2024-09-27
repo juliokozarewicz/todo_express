@@ -4,7 +4,7 @@ export class CreateCategoryService {
 
     async execute(message: string): Promise<StandardResponse> {
 
-        throw new Error('This is a custom error!!!!!!!!!!');
+        throw new Error('This is a custom error!');
 
         return {
             "status": 'succes',

@@ -10,6 +10,7 @@ export class CreateCategoryController {
 
             const getMessage = (req.query.message as string) || 'Hello World!!!'; 
             const createCategoryService = new CreateCategoryService();
+            
             await createCategoryService.execute(getMessage);
 
             const successResponse: StandardResponse = {
@@ -26,8 +27,8 @@ export class CreateCategoryController {
         } catch (error) {
 
             const errorResponse: StandardResponse = {
-                status: 'success',
-                code: 201,
+                status: 'error',
+                code: 500,
                 message: `${error}`,
                 links: {
                     self: req.originalUrl,
