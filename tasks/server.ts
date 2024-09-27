@@ -7,7 +7,7 @@ import { DataSource, DataSourceOptions } from "typeorm"
 
 // load '.env'
 //----------------------------------------------------------------------------
-config({ path: path.resolve(__dirname, '../.env') });
+config({ path: path.resolve(__dirname, '../01_shared/.env') });
 //----------------------------------------------------------------------------
 
 // database

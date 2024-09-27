@@ -2,8 +2,7 @@ import { Router } from 'express';
 import { CreateCategoryController } from './controllers/CreateCategoryController';
 
 const router = Router();
-const createCategoryController = new CreateCategoryController();
 
-router.get('/category/create', createCategoryController.execute.bind(createCategoryController));
+router.post('/category/create', new CreateCategoryController().handle.bind(new CreateCategoryController()));
 
 export default router;

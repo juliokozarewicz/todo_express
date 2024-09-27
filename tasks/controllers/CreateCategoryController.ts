@@ -1,16 +1,42 @@
 import { Request, Response } from 'express';
 import { CreateCategoryService } from '../services/CreateCategoryService';
+import { StandardResponse } from '../../01_shared/StandardResponse';
 
 export class CreateCategoryController {
-    async execute(req: Request, res: Response): Promise<any> {
-        const getMessage = (req.query.message as string) || 'Hello World!!!'; // http://127.0.0.1:PORT/helloworld/helloworld?message=xxxxx
-        const createCategoryService = new CreateCategoryService();
+
+    async handle(req: Request, res: Response) {
 
         try {
-            const message = await createCategoryService.execute(getMessage);
-            res.json({ message });
+
+            const getMessage = (req.query.message as string) || 'Hello World!!!'; 
+            const createCategoryService = new CreateCategoryService();
+            await createCategoryService.execute(getMessage);
+
+            const successResponse: StandardResponse = {
+                status: 'success',
+                code: 201,
+                message: 'category created successfully',
+                links: {
+                    self: req.originalUrl,
+                }
+            };
+
+            res.status(201).json(successResponse);
+
         } catch (error) {
-            res.status(500).json({ error: 'Internal Server Error' });
+
+            const errorResponse: StandardResponse = {
+                status: 'success',
+                code: 201,
+                message: `${error}`,
+                links: {
+                    self: req.originalUrl,
+                }
+            };
+
+            res.status(500).json(errorResponse);
         }
+
     }
+
 }
