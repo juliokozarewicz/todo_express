@@ -4,6 +4,7 @@ import { config } from 'dotenv';
 import path from 'path';
 import "reflect-metadata"
 import { DataSource, DataSourceOptions } from "typeorm"
+import errorHandler from './middlewares/errorHandler';
 
 // load '.env'
 //----------------------------------------------------------------------------
@@ -39,6 +40,9 @@ app.use(express.json());
 
 // microservice main route
 app.use('/tasks', routes);
+
+// middleware errors
+app.use(errorHandler);
 
 // run server
 app.listen(PORT, () => {

@@ -1,10 +1,10 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { CreateCategoryService } from '../services/CreateCategoryService';
 import { StandardResponse } from '../../01_shared/StandardResponse';
 
 export class CreateCategoryController {
 
-    async handle(req: Request, res: Response) {
+    async handle(req: Request, res: Response, next: NextFunction) {
 
         try {
 
@@ -25,17 +25,7 @@ export class CreateCategoryController {
             res.status(201).json(successResponse);
 
         } catch (error) {
-
-            const errorResponse: StandardResponse = {
-                status: 'error',
-                code: 500,
-                message: `${error}`,
-                links: {
-                    self: req.originalUrl,
-                }
-            };
-
-            res.status(500).json(errorResponse);
+            next(error);
         }
 
     }
