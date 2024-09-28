@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
+import { logsGenerator } from './logsGenerator';
 
 // create error function
 //------------------------------------------------------------------------
@@ -35,7 +36,10 @@ const errorHandler = (
 
   // create custom error
   //------------------------------------------------------------------------
-  if (err.name === 'CustomErrorHandler') {
+  if (
+    err.name === 'CustomErrorHandler' &&
+    err.code < 500
+  ) {
     res.status(err.code).json({
       status: "error",
       statusCode: err.code,
@@ -62,6 +66,16 @@ const errorHandler = (
       prev: '/',
     }
   });
+
+  logsGenerator(
+    `${req.ip}`,
+    'CRITICAL',
+    500,
+    `${req.method}`,
+    `${req.url}`,
+    `${req.headers['user-agent']}`,
+    'testeee messageeeeee'
+  )
   //------------------------------------------------------------------------
 };
 
