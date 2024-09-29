@@ -5,6 +5,7 @@ import path from 'path';
 import "reflect-metadata"
 import { DataSource, DataSourceOptions } from "typeorm"
 import errorHandler from './middlewares/errorHandler';
+import { setupSwagger } from './swagger';
 
 // load '.env'
 //----------------------------------------------------------------------------
@@ -36,10 +37,15 @@ AppDataSource.initialize()
 const app = express();
 const PORT = process.env.SERVER_PORT;
 
-app.use(express.json());
+// swagger documentation
+//------------------------------------------------------------------------
+setupSwagger(app);
+//------------------------------------------------------------------------
 
 // microservice main route
 app.use('/tasks', routes);
+
+app.use(express.json());
 
 // middleware errors
 app.use(errorHandler);
