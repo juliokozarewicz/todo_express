@@ -29,5 +29,10 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
 export const setupSwagger = (app: Express) => {
-  app.use('/tasks/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-};
+  const options = {
+    customCss: '.topbar { display: none }',
+    customSiteTitle: packageJson.name.toUpperCase(),
+  };
+
+  app.use('/tasks/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs, options));
+}
