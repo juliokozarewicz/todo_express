@@ -5,7 +5,7 @@ const router = Router();
 
 /**
 * @swagger
-* /category/create:
+* /tasks/category/create:
 *   post:
 *     summary: create a new category
 *     security:
