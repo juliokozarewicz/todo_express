@@ -1,5 +1,5 @@
 {
-  "9/30/2024, 11:36:04 AM": {
+  "9/30/2024, 11:43:14 AM": {
     "ip": "::ffff:127.0.0.1",
     "level": "CRITICAL",
     "statusCode": 500,
@@ -8,7 +8,214 @@
     "agent": "PostmanRuntime/7.42.0",
     "message": "testeee messageeeeee"
   },
-  "9/30/2024, 11:36:07 AM": {
+  "9/30/2024, 11:43:15 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:16 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:17 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:18 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:19 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:20 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:22 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:23 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:24 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:25 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:27 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:28 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:29 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:30 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:31 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:32 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:36 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:43:37 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:56:07 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:56:08 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:56:09 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:56:10 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:56:11 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:56:12 AM": {
     "ip": "::ffff:127.0.0.1",
     "level": "CRITICAL",
     "statusCode": 500,
