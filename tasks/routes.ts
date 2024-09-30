@@ -18,13 +18,29 @@ const router = Router();
 *           schema:
 *             type: object
 *             properties:
-*               name:
+*               categoryName:
 *                 type: string
-*                 example: "Nova Categoria"
+*                 example: "finance"
 *     responses:
 *       201:
-*         description: Categoria criada com sucesso
-*/
+ *         description: Category created successfully
+ *         content:
+ *           application/json:
+ *             examples:
+ *               successResponse:
+ *                 value:
+ *                   {
+ *                     "status": "success",
+ *                     "code": 201,
+ *                     "idCreated": "uuid",
+ *                     "message": "category created successfully",
+ *                     "links": {
+ *                       "self": "/category/create",
+ *                       "next": "/category/list-all"
+ *                     }
+ *                   }
+ * 
+ */
 router.post('/category/create', new CreateCategoryController().handle.bind(new CreateCategoryController()));
 
 export default router;

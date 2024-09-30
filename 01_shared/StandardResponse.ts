@@ -2,6 +2,7 @@ export interface StandardResponse {
     "status": string,
     "code": number,
     "message": string,
+    "idCreated"?: string,
     "data"?: any[],
     "meta"?: {
         "total"?: number,
