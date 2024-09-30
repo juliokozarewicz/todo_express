@@ -4,8 +4,8 @@ import { config } from "dotenv"
 import path from "path"
 import "reflect-metadata"
 import { DataSource, DataSourceOptions } from "typeorm"
-import errorHandler from "./middlewares/errorHandler"
-import { rateLimiter } from "./middlewares/rateLimiter"
+import errorHandler from "./e_middlewares/errorHandler"
+import { rateLimiter } from "./e_middlewares/rateLimiter"
 
 import swaggerUi from "swagger-ui-express"
 import documentation from "./1_docs/documentation"
@@ -62,6 +62,7 @@ app.use(
   )
 )
 
+// redocly
 app.get('/tasks/documentation-json', (request, response) => {
   response.json(JSON.parse(documentation));
 });

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
-import { CreateCategoryService } from '../services/CreateCategoryService';
 import { StandardResponse } from '../../01_shared/StandardResponse';
+import { CreateCategoryService } from '../b_services/CreateCategoryService';
 
 export class CreateCategoryController {
 

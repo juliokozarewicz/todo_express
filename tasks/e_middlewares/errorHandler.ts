@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { logsGenerator } from '../logsGenerator';
+import { logsGenerator } from '../f_utils/logsGenerator';
 
 // create error function
 //------------------------------------------------------------------------

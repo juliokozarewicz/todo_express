@@ -1,5 +1,5 @@
 import { StandardResponse } from '../../01_shared/StandardResponse'
-import { createCustomError } from '../middlewares/errorHandler';
+import { createCustomError } from '../e_middlewares/errorHandler';
 
 export class CreateCategoryService {
 
