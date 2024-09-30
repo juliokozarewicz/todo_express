@@ -8,6 +8,8 @@ const router = Router();
 * /category/create:
 *   post:
 *     summary: create a new category
+*     security:
+*       - jwt: []
 *     tags: [CATEGORY]
 *     requestBody:
 *       required: true

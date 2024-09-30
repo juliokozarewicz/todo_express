@@ -1,7 +1,7 @@
 {
   "name": "tasks",
   "version": "1.0.0",
-  "description": "",
+  "description": "Tasky Tracer is a secure API for managing tasks, featuring user authentication with JWT, and full CRUD operations for creating, updating, and deleting to-do items. With options for task prioritization, filtering, and collaboration, it simplifies task management for both individuals and teams, enhancing productivity in a user-friendly manner.",
   "main": "index.js",
   "scripts": {
     "typeorm": "ts-node-dev node_modules/.bin/typeorm",
@@ -14,6 +14,7 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
     "pg": "^8.13.0",
     "reflect-metadata": "^0.2.2",
     "typeorm": "^0.3.20",

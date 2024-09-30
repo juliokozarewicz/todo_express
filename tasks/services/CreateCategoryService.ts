@@ -8,7 +8,7 @@ export class CreateCategoryService {
 
         throw createCustomError({
             message: 'Message is required',
-            code: 500,
+            code: 505,
             next: '/next-page',
             prev: '/prev-page'
         });

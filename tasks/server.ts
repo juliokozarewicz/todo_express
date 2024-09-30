@@ -9,7 +9,7 @@ import { setupSwagger } from './swagger';
 
 // load '.env'
 //----------------------------------------------------------------------------
-config({ path: path.resolve(__dirname, '../01_shared/.env') });
+config({ path: path.resolve(__dirname, './.env') });
 //----------------------------------------------------------------------------
 
 // database

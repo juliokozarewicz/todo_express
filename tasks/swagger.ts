@@ -1,21 +1,33 @@
+import { Express } from 'express';
 import swaggerJsDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
-import { Express } from 'express';
+
+const packageJson = require('./package.json');
 
 const swaggerOptions = {
   swaggerDefinition: {
     openapi: '3.0.0',
     info: {
-      title: '*** Minha API ***',
-      version: '1.0.0',
-      description: '*** Documentação da API ***',
+      title: packageJson.name.toUpperCase(),
+      version: packageJson.version,
+      description: packageJson.description,
     },
+    components: {
+      securitySchemes: {
+        BearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        }
+      }
+    },
+    security: [{ BearerAuth: [] }]
   },
-  apis: ['./routes.ts'], // Caminho para os arquivos de rota
+  apis: ['./routes.ts'],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
 export const setupSwagger = (app: Express) => {
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+  app.use('/tasks/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 };
