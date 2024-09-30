@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const logsDir = path.resolve('./1_logs/');
-const logFilePath = path.resolve('./1_logs/logs.txt');
+const logFilePath = path.resolve('./1_logs/main.log');
 
 interface LogEntry {
     ip: string;
