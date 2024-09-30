@@ -2,7 +2,7 @@ import { Express } from 'express';
 import swaggerJsDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 
-const packageJson = require('./package.json');
+const packageJson = require('../package.json');
 
 const swaggerOptions = {
   swaggerDefinition: {

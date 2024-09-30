@@ -1,5 +1,14 @@
 {
-  "9/29/2024, 4:03:11 PM": {
+  "9/30/2024, 11:36:04 AM": {
+    "ip": "::ffff:127.0.0.1",
+    "level": "CRITICAL",
+    "statusCode": 500,
+    "method": "POST",
+    "url": "/tasks/category/create",
+    "agent": "PostmanRuntime/7.42.0",
+    "message": "testeee messageeeeee"
+  },
+  "9/30/2024, 11:36:07 AM": {
     "ip": "::ffff:127.0.0.1",
     "level": "CRITICAL",
     "statusCode": 500,
