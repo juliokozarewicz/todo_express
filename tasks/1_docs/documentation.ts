@@ -1,12 +1,14 @@
 const packageJson = require('../package.json');
 
 const documentation = JSON.stringify({
+  // configs
   "openapi": "3.0.0",
   "info": {
     "title": packageJson.name.toUpperCase(), 
     "version": packageJson.version, 
     "description": packageJson.description
   },
+  // components, security etc...
   "components": {
     "securitySchemes": {
       "BearerAuth": {
@@ -21,7 +23,9 @@ const documentation = JSON.stringify({
       "BearerAuth": []
     }
   ],
+  // endpoints
   "paths": {
+    // --------------------------------------------------
     "/tasks/category/create": {
       "post": {
         "summary": "create a new category",
@@ -33,6 +37,7 @@ const documentation = JSON.stringify({
         "tags": ["CATEGORY"],
         "requestBody": {
           "required": true,
+          "description": "Create anew category",
           "content": {
             "application/json": {
               "schema": {
@@ -40,8 +45,9 @@ const documentation = JSON.stringify({
                 "properties": {
                   "categoryName": {
                     "type": "string",
+                    "required": true,
                     "example": "finance"
-                  }
+                  },
                 }
               }
             }
@@ -71,7 +77,20 @@ const documentation = JSON.stringify({
           }
         }
       }
-    }
+    },
+    // --------------------------------------------------
+    "/tasks/category/list-all": {
+      "get": {
+        "summary": "list all categories",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "tags": ["CATEGORY"],
+      }
+    },
+    // --------------------------------------------------
   }
 });
 

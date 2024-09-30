@@ -10,8 +10,8 @@ export interface StandardResponse {
         "per_page"?: number,
         "last_page"?: number
     },
-    "links": {
-        "self": string,
+    "links"?: {
+        "self"?: string,
         "next"?: string,
         "prev"?: string
     }
