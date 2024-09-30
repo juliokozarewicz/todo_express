@@ -1,4 +1,4 @@
-import express from "express"
+import express, { response } from "express"
 import routes from "./routes"
 import { config } from "dotenv"
 import path from "path"
@@ -9,6 +9,7 @@ import { rateLimiter } from "./middlewares/rateLimiter"
 
 import swaggerUi from "swagger-ui-express"
 import documentation from "./1_docs/documentation"
+import { request } from "http"
 const packageJson = require('./package.json');
 
 // load '.env'
@@ -53,13 +54,22 @@ const options = {
 };
 
 app.use(
-  "/tasks/docs",
+  "/tasks/swagger",
   swaggerUi.serve,
   swaggerUi.setup(
     JSON.parse(documentation),
     options
   )
 )
+
+app.get('/tasks/documentation-json', (request, response) => {
+  response.json(JSON.parse(documentation));
+});
+
+app.get('/tasks/documentation', (request, response) => {
+  response.setHeader('Content-Type', 'text/html');
+  return response.sendFile(process.cwd() + '/1_docs/index.html');
+});
 //----------------------------------------------------------------------
 
 // rate limiter

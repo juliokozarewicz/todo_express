@@ -74,7 +74,7 @@ const errorHandler = (
     `${req.method}`,
     `${req.url}`,
     `${req.headers['user-agent']}`,
-    'testeee messageeeeee'
+    `${err.message}`
   )
   //------------------------------------------------------------------------
 };
