@@ -1,12 +1,15 @@
-import express from 'express';
-import routes from './routes';
-import { config } from 'dotenv';
-import path from 'path';
+import express from "express"
+import routes from "./routes"
+import { config } from "dotenv"
+import path from "path"
 import "reflect-metadata"
 import { DataSource, DataSourceOptions } from "typeorm"
-import errorHandler from './middlewares/errorHandler';
-import { setupSwagger } from './middlewares/swaggerDocs';
-import { rateLimiter } from './middlewares/rateLimiter'
+import errorHandler from "./middlewares/errorHandler"
+import { rateLimiter } from "./middlewares/rateLimiter"
+
+import swaggerUi from "swagger-ui-express"
+import documentation from "./1_docs/documentation"
+const packageJson = require('./package.json');
 
 // load '.env'
 //----------------------------------------------------------------------
@@ -44,7 +47,19 @@ AppDataSource.initialize()
 
 // swagger documentation
 //----------------------------------------------------------------------
-setupSwagger(app);
+const options = {
+  customCss: '.topbar { display: none }',
+  customSiteTitle: packageJson.name.toUpperCase(),
+};
+
+app.use(
+  "/tasks/docs",
+  swaggerUi.serve,
+  swaggerUi.setup(
+    JSON.parse(documentation),
+    options
+  )
+)
 //----------------------------------------------------------------------
 
 // rate limiter
