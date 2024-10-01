@@ -1,0 +1,44 @@
+import { StandardResponse } from '../../01_shared/StandardResponse'
+import { AppDataSource } from '../server'
+import { CategoryEntity } from '../a_entities/CategoryEntity'
+import { DeleteCategoryValidationType } from '../d_validations/DeleteCategoryValidation'
+import { createCustomError } from '../e_middlewares/errorHandler'
+
+export class DeleteCategoryService {
+
+    async execute(
+        validatedData:DeleteCategoryValidationType
+    ): Promise<StandardResponse> {
+
+        // database operations
+        //-------------------------------------------------------------------------
+        const categoryRepository = AppDataSource.getRepository(CategoryEntity)
+
+        const deleteCategoryResult = await categoryRepository.delete({
+            id: validatedData.categoryId,
+        })
+
+        if (deleteCategoryResult.affected === 0) {
+            throw createCustomError({
+                message: "Category not found",
+                code: 404,
+                next: "/tasks/category/list-all",
+                prev: "/tasks/category/list-all",
+            })
+        }
+        //-------------------------------------------------------------------------
+
+        return {
+            "status": 'success',
+            "code": 201,
+            "message": "successfully deleted",
+            "links": {
+                "self": '/tasks/category/delete/{id}',
+                "next": '/tasks/category/list-all',
+                "prev": '/tasks/category/list-all',
+            }
+        }
+
+    }
+
+}

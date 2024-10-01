@@ -1,4 +1,3 @@
-// d_validations/CreateCategoryValidation.ts
 import { z } from 'zod'
 
 export const CreateCategoryValidation = z.object({

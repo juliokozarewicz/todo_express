@@ -28,6 +28,7 @@ export class ListAllCategoriesService {
             "links": {
                 "self": '/tasks/category/list-all',
                 "next": '/tasks/',
+                "prev": '/tasks/category/create',
             }
         }
 
