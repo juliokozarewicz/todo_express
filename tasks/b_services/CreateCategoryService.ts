@@ -2,13 +2,14 @@ import { StandardResponse } from '../../01_shared/StandardResponse'
 import { createCustomError } from '../e_middlewares/errorHandler';
 import { AppDataSource } from '../server';
 import { CategoryEntity } from '../a_entities/CategoryEntity';
+import { CreateCategoryValidationType } from '../d_validations/CreateCategoryValidation';
 
 export class CreateCategoryService {
 
-    async execute(categoryName: string): Promise<StandardResponse> {
+    async execute(validatedData:CreateCategoryValidationType): Promise<StandardResponse> {
         
         // typography
-        const categoryNameCase = categoryName.toLowerCase();
+        const categoryNameCase = validatedData.categoryName.toLowerCase();
 
         // database operations
         //-------------------------------------------------------------------------
@@ -34,7 +35,7 @@ export class CreateCategoryService {
         return {
             "status": 'success',
             "code": 201,
-            "message": `'${categoryName}' created successfully`,
+            "message": `'${categoryNameCase}' created successfully`,
             "idCreated": `${newCategory.id}`,
             "links": {
                 "self": '/tasks/category/create',

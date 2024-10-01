@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { logsGenerator } from '../f_utils/logsGenerator';
+import { z } from 'zod';
 
 // create error function
 //------------------------------------------------------------------------
@@ -51,6 +52,23 @@ const errorHandler = (
       }
     });
     return;
+  }
+  //------------------------------------------------------------------------
+
+  // create ZOD error
+  //------------------------------------------------------------------------
+  if (err instanceof z.ZodError) {
+    err.errors.map(e => {
+      res.status(400).json({
+        status: "error",
+        statusCode: 400,
+        message: e.message,
+        links: {
+          self: req.originalUrl,
+        }
+      });
+      return;
+    })
   }
   //------------------------------------------------------------------------
 

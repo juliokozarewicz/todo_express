@@ -1,18 +1,27 @@
 import { NextFunction, Request, Response } from 'express';
 import { CreateCategoryService } from '../b_services/CreateCategoryService';
+import { CreateCategoryValidation } from '../d_validations/CreateCategoryValidation';
 
 export class CreateCategoryController {
 
     async handle(req: Request, res: Response, next: NextFunction): Promise<void> {
 
         try {
-            
-            // body vars
-            const categoryName = req.body.categoryName;
+
+            // data init
+            const validatedData = {
+                categoryName: ''
+            };
+
+            // validation
+            const validatedBody =  CreateCategoryValidation.parse(req.body);
+
+            // assembled data
+            validatedData.categoryName = validatedBody.categoryName;
 
             // call execute
             const createCategoryService = new CreateCategoryService();
-            const response = await createCategoryService.execute(categoryName);
+            const response = await createCategoryService.execute(validatedData);
 
             //response
             res.status(response.code).json(response);
