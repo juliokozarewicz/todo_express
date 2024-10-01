@@ -1,6 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 import { CreateCategoryService } from '../b_services/CreateCategoryService';
 import { CreateCategoryValidation } from '../d_validations/CreateCategoryValidation';
+import { escape } from 'lodash';
+
 
 export class CreateCategoryController {
 
@@ -17,7 +19,7 @@ export class CreateCategoryController {
             const validatedBody =  CreateCategoryValidation.parse(req.body);
 
             // assembled data
-            validatedData.categoryName = validatedBody.categoryName;
+            validatedData.categoryName = escape(validatedBody.categoryName);
 
             // call execute
             const createCategoryService = new CreateCategoryService();

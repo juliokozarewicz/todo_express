@@ -6,8 +6,10 @@ import { CreateCategoryValidationType } from '../d_validations/CreateCategoryVal
 
 export class CreateCategoryService {
 
-    async execute(validatedData:CreateCategoryValidationType): Promise<StandardResponse> {
-        
+    async execute(
+        validatedData:CreateCategoryValidationType
+    ): Promise<StandardResponse> {
+
         // typography
         const categoryNameCase = validatedData.categoryName.toLowerCase();
 
@@ -41,6 +43,7 @@ export class CreateCategoryService {
                 "self": '/tasks/category/create',
             }
         }
+
     }
 
 }
