@@ -11,7 +11,7 @@ export class CategoryEntity {
   @CreateDateColumn({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP'
-    })
+  })
   createdAt: Date;
 
   @UpdateDateColumn({

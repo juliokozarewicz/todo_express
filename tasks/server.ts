@@ -6,10 +6,8 @@ import "reflect-metadata"
 import { DataSource, DataSourceOptions } from "typeorm"
 import errorHandler from "./e_middlewares/errorHandler"
 import { rateLimiter } from "./e_middlewares/rateLimiter"
-
 import swaggerUi from "swagger-ui-express"
 import documentation from "./1_docs/documentation"
-import { request } from "http"
 const packageJson = require('./package.json');
 
 // load '.env'
@@ -33,8 +31,8 @@ const AppDataSource = new DataSource({
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
   synchronize: false,
-  entities: [path.join(__dirname, "entities/*.ts")],
-  migrations: [path.join(__dirname, "entities/migrations/*.ts")],
+  entities: [path.join(__dirname, "a_entities/*.ts")],
+  migrations: [path.join(__dirname, "a_entities/migrations/*.ts")],
   migrationsTableName: "migrations_table",
 } as DataSourceOptions )
 
