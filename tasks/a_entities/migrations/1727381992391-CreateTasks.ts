@@ -10,7 +10,7 @@ export class CreateTaskTable1684293123457 implements MigrationInterface {
                         name: 'id',
                         type: 'uuid',
                         isPrimary: true,
-                        default: 'uuid_generate_v4()', // Para gerar UUID automaticamente
+                        default: 'uuid_generate_v4()',
                     },
                     {
                         name: 'createdAt',

@@ -46,8 +46,8 @@ const errorHandler = (
       message: err.message || "bad request",
       links: {
         self: req.originalUrl,
-        next: err.next || null,
-        prev: err.prev || null,
+        next: err.next,
+        prev: err.prev,
       }
     });
     return;

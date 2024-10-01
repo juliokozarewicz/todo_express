@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "typeorm": "ts-node-dev node_modules/.bin/typeorm",
+    "typeorm:win": "cross-env ts-node-dev ./node_modules/typeorm/cli.js",
     "start": "ts-node server.ts",
     "dev": "clear && nodemon server.ts"
   },

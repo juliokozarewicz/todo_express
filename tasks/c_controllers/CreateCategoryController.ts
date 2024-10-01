@@ -3,8 +3,6 @@ import { CreateCategoryService } from '../b_services/CreateCategoryService';
 
 export class CreateCategoryController {
 
-
-
     async handle(req: Request, res: Response, next: NextFunction): Promise<void> {
 
         try {
