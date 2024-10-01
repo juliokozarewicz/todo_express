@@ -58,17 +58,15 @@ const errorHandler = (
   // create ZOD error
   //------------------------------------------------------------------------
   if (err instanceof z.ZodError) {
-    err.errors.map(e => {
-      res.status(400).json({
-        status: "error",
-        statusCode: 400,
-        message: e.message,
-        links: {
-          self: req.originalUrl,
-        }
-      });
-      return;
-    })
+    res.status(400).json({
+      status: "error",
+      statusCode: 400,
+      message: err.errors[0].message,
+      links: {
+        self: req.originalUrl,
+      }
+    });
+    return;
   }
   //------------------------------------------------------------------------
 
