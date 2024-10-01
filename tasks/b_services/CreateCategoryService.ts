@@ -15,7 +15,7 @@ export class CreateCategoryService {
 
         return {
             "status": 'success',
-            "code": 200,
+            "code": 201,
             "message": `${categoryName} created successfully`,
             "idCreated": `${newCategory.id}`,
             "links": {
