@@ -3,7 +3,6 @@ import { CreateCategoryService } from '../b_services/CreateCategoryService'
 import { CreateCategoryValidation } from '../d_validations/CreateCategoryValidation'
 import { escape } from 'lodash'
 
-
 export class CreateCategoryController {
 
     async handle(req: Request, res: Response, next: NextFunction): Promise<void> {
