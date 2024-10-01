@@ -55,7 +55,7 @@ const documentation = JSON.stringify({
         },
         "responses": {
           "201": {
-            "description": "Category created successfully",
+            "description": "'category' created successfully",
             "content": {
               "application/json": {
                 "examples": {
@@ -63,11 +63,11 @@ const documentation = JSON.stringify({
                     "value": {
                       "status": "success",
                       "code": 201,
-                      "idCreated": "uuid",
-                      "message": "category created successfully",
+                      "idCreated": "id",
+                      "message": "'category' created successfully",
                       "links": {
-                        "self": "/category/create",
-                        "next": "/category/list-all"
+                        "self": "/tasks/category/create",
+                        "next": "/tasks/category/list-all"
                       }
                     }
                   }
