@@ -1,5 +1,5 @@
 // d_validations/CreateCategoryValidation.ts
-import { z } from 'zod';
+import { z } from 'zod'
 
 export const CreateCategoryValidation = z.object({
     categoryName: z.string()
@@ -9,4 +9,4 @@ export const CreateCategoryValidation = z.object({
 });
 
 // types
-export type CreateCategoryValidationType = z.infer<typeof CreateCategoryValidation>;
+export type CreateCategoryValidationType = z.infer<typeof CreateCategoryValidation>
