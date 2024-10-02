@@ -227,7 +227,6 @@ const documentation = JSON.stringify({
       }
     },
     // --------------------------------------------------
-    // --------------------------------------------------
     "/tasks/create": {
       "post": {
         "summary": "Create a new task",
