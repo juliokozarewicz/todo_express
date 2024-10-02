@@ -1,10 +1,13 @@
 import { StandardResponse } from '../../01_shared/StandardResponse'
 import { TaskEntity } from '../a_entities/TaskEntity'
+import { ListTaskValidationType } from '../b_validations/ListTaskValidation'
 import { AppDataSource } from '../server'
 
 export class ListAllTasksService {
 
-    async execute(): Promise<StandardResponse> {
+    async execute(
+        validatedData:ListTaskValidationType
+    ): Promise<StandardResponse> {
 
         // database operations
         //-------------------------------------------------------------------------
