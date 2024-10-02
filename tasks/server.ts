@@ -52,7 +52,7 @@ const options = {
 };
 
 app.use(
-  "/tasks/swagger",
+  "/tasks/docs/swagger",
   swaggerUi.serve,
   swaggerUi.setup(
     JSON.parse(documentation),
@@ -61,11 +61,11 @@ app.use(
 )
 
 // redocly
-app.get('/tasks/documentation-json', (request, response) => {
+app.get('/tasks/docs/json', (request, response) => {
   response.json(JSON.parse(documentation));
 });
 
-app.get('/tasks/documentation', (request, response) => {
+app.get('/tasks/docs/redocly', (request, response) => {
   response.setHeader('Content-Type', 'text/html');
   return response.sendFile(process.cwd() + '/1_docs/index.html');
 });

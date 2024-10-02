@@ -412,6 +412,104 @@ const documentation = JSON.stringify({
       }
     },
     // --------------------------------------------------
+    "/tasks/update/{updateId}": {
+      "patch": {
+        "summary": "Update an existing task",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "tags": ["TASKS"],
+        "parameters": [
+          {
+            "name": "updateId",
+            "in": "path",
+            "required": true,
+            "description": "ID of the task to be updated",
+            "schema": {
+              "type": "string",
+              "example": "22f70783-9891-4d64-a08c-c676e385616f"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "taskName": {
+                    "type": "string",
+                    "example": "New Task Name"
+                  },
+                  "category": {
+                    "type": "string",
+                    "example": "finance"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "Updated description of the task"
+                  },
+                  "dueDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-10-10"
+                  },
+                  "statusName": {
+                    "type": "string",
+                    "example": "completed"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Task updated successfully",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "successResponse": {
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "'New Task Name' updated successfully",
+                      "idUpdated": "22f70783-9891-4d64-a08c-c676e385616f",
+                      "links": {
+                        "self": "/tasks/update/22f70783-9891-4d64-a08c-c676e385616f",
+                        "next": "/tasks/list",
+                        "prev": "/tasks/list"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Task not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "error",
+                  "statusCode": 404,
+                  "message": "task not found",
+                  "links": {
+                    "self": "/tasks/update/22f70783-9891-4d64-a08c-c676e385616f",
+                    "next": "/tasks/list",
+                    "prev": "/tasks/list"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    // --------------------------------------------------
   }
 });
 
