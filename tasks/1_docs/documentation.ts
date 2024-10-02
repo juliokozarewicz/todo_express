@@ -37,7 +37,6 @@ const documentation = JSON.stringify({
         "tags": ["CATEGORY"],
         "requestBody": {
           "required": true,
-          "description": "Create anew category",
           "content": {
             "application/json": {
               "schema": {
@@ -238,7 +237,6 @@ const documentation = JSON.stringify({
         "tags": ["TASKS"],
         "requestBody": {
           "required": true,
-          "description": "Create a new task with details",
           "content": {
             "application/json": {
               "schema": {
@@ -366,7 +364,54 @@ const documentation = JSON.stringify({
       }
     },
     // --------------------------------------------------
-
+    "/tasks/list": {
+      "get": {
+        "summary": "List all tasks",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "tags": ["TASKS"],
+        "responses": {
+          "200": {
+            "description": "Tasks retrieved successfully",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "successResponse": {
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "data received successfully",
+                      "data": [
+                        {
+                          "id": "1",
+                          "taskName": "Example Task",
+                          "category": "Finance",
+                          "description": "This is an example task.",
+                          "dueDate": "2024-10-01",
+                          "statusName": "Pending"
+                        }
+                      ],
+                      "meta": {
+                        "total": 1
+                      },
+                      "links": {
+                        "self": "/tasks/list",
+                        "next": "/tasks/",
+                        "prev": "/tasks/list"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    // --------------------------------------------------
   }
 });
 

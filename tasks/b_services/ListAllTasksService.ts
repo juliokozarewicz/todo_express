@@ -2,7 +2,6 @@ import { StandardResponse } from '../../01_shared/StandardResponse'
 import { TaskEntity } from '../a_entities/TaskEntity'
 import { AppDataSource } from '../server'
 
-
 export class ListAllTasksService {
 
     async execute(): Promise<StandardResponse> {
