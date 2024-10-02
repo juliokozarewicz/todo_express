@@ -30,7 +30,7 @@ export class DeleteCategoryService {
 
         return {
             "status": 'success',
-            "code": 201,
+            "code": 200,
             "message": "successfully deleted",
             "links": {
                 "self": '/tasks/category/delete/{id}',

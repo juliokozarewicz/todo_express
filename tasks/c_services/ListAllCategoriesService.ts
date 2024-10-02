@@ -18,7 +18,7 @@ export class ListAllCategoriesService {
 
         return {
             "status": 'success',
-            "code": 201,
+            "code": 200,
             "message": "data received successfully",
             "data": existingCategory,
             "meta": {

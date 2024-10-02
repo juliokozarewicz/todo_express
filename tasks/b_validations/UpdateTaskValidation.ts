@@ -11,7 +11,8 @@ export const UpdateTaskValidation = z.object({
         .regex(
             /^[^<>&'"/]+$/,
             "contains disallowed characters"
-        ),
+        )
+        .optional(),
 
     category: z.string()
         .min(1, "is required")
@@ -19,7 +20,8 @@ export const UpdateTaskValidation = z.object({
         .regex(
             /^[^<>&'"/]+$/,
             "contains disallowed characters"
-        ),
+        )
+        .optional(),
 
     description: z.string()
         .min(1, "is required")
@@ -27,14 +29,16 @@ export const UpdateTaskValidation = z.object({
         .regex(
             /^[^<>&'"/]+$/,
             "contains disallowed characters"
-        ),
+        )
+        .optional(),
 
     dueDate: z.string()
         .regex(/^\d{4}-\d{2}-\d{2}$/, "must be in the format YYYY-MM-DD")
         .refine(date => !isNaN(Date.parse(date)), {
             message: "must be a valid date",
         })
-        .transform(date => new Date(date)),
+        .transform(date => new Date(date))
+        .optional(),
 
     statusName: z.string()
         .min(1, "is required")
@@ -42,7 +46,8 @@ export const UpdateTaskValidation = z.object({
         .regex(
             /^[^<>&'"/]+$/,
             "contains disallowed characters"
-        ),
+        )
+        .optional(),
 
 });
 

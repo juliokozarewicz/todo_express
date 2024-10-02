@@ -18,11 +18,11 @@ export class UpdateTaskController {
             // data object
             const validatedData = {
                 updateId: escape(validatedBody.updateId),
-                taskName: escape(validatedBody.taskName),
-                category: escape(validatedBody.category),
-                description: escape(validatedBody.description),
-                dueDate: new Date(validatedBody.dueDate),
-                statusName: escape(validatedBody.statusName)
+                taskName: validatedBody.taskName ? escape(validatedBody.taskName) : undefined,
+                category: validatedBody.category ? escape(validatedBody.category) : undefined,
+                description: validatedBody.description ? escape(validatedBody.description) : undefined,
+                dueDate: validatedBody.dueDate ? new Date(validatedBody.dueDate) : undefined,
+                statusName: validatedBody.statusName ? escape(validatedBody.statusName) : undefined
             }
 
             // call execute
