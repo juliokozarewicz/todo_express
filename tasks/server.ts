@@ -47,7 +47,13 @@ AppDataSource.initialize()
 // swagger documentation
 //----------------------------------------------------------------------
 const options = {
-  customCss: '.topbar { display: none }',
+  customCss: `
+    .topbar { display: none; }
+    .swagger-ui { 
+      max-width: 85%; 
+      margin: auto;
+    }
+  `,
   customSiteTitle: packageJson.name.toUpperCase(),
 };
 

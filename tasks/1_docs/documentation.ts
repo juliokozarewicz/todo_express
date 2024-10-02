@@ -44,10 +44,10 @@ const documentation = JSON.stringify({
                 "properties": {
                   "categoryName": {
                     "type": "string",
-                    "required": true,
                     "example": "finance"
                   },
-                }
+                },
+                "required": ["categoryName"]
               }
             }
           }
@@ -268,7 +268,7 @@ const documentation = JSON.stringify({
                     "example": "Pending"
                   }
                 },
-                "required": ["taskName", "category", "dueDate"]
+                "required": ["taskName", "category", "dueDate", "statusName"]
               }
             }
           }

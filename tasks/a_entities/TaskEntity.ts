@@ -35,7 +35,9 @@ import {
     category: string;
   
     @Column({
-      type: 'varchar', length: 500, nullable: true
+      type: 'varchar',
+      length: 500,
+      nullable: true
     })
     description: string;
 
