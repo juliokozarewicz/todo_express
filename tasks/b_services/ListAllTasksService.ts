@@ -1,18 +1,26 @@
 import { StandardResponse } from '../../01_shared/StandardResponse'
+import { TaskEntity } from '../a_entities/TaskEntity'
 import { AppDataSource } from '../server'
-import { CategoryEntity } from '../a_entities/CategoryEntity'
 
-export class ListAllCategoriesService {
+
+export class ListAllTasksService {
 
     async execute(): Promise<StandardResponse> {
 
         // database operations
         //-------------------------------------------------------------------------
-        const categoryRepository = AppDataSource.getRepository(CategoryEntity)
+        const TaskyRepository = AppDataSource.getRepository(TaskEntity)
 
-        const existingCategory = await categoryRepository.find({
+        const existingTask = await TaskyRepository.find({
             where: {},
-            select: ['id', 'category'],
+            select: [
+                'id',
+                'taskName',
+                'category',
+                'description',
+                'dueDate',
+                'statusName'
+            ],
         })
         //-------------------------------------------------------------------------
 
@@ -20,14 +28,14 @@ export class ListAllCategoriesService {
             "status": 'success',
             "code": 201,
             "message": "data received successfully",
-            "data": existingCategory,
+            "data": existingTask,
             "meta": {
-                "total": existingCategory.length,
+                "total": existingTask.length,
             },
             "links": {
-                "self": '/tasks/category/list-all',
+                "self": '/tasks/list',
                 "next": '/tasks/',
-                "prev": '/tasks/category/create',
+                "prev": '/tasks/list',
             }
         }
 

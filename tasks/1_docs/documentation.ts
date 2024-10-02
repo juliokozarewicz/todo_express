@@ -106,7 +106,7 @@ const documentation = JSON.stringify({
                     },
                     "message": {
                       "type": "string",
-                      "example": "Successfully obtained data"
+                      "example": "data received successfully"
                     },
                     "data": {
                       "type": "array",
