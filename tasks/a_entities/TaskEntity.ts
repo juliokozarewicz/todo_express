@@ -25,6 +25,13 @@ import {
       length: 255,
       nullable: false
     })
+    taskName: string;
+
+    @Column({
+      type: 'varchar',
+      length: 255,
+      nullable: false
+    })
     category: string;
   
     @Column({

@@ -23,6 +23,12 @@ export class CreateTaskTable1684293123457 implements MigrationInterface {
                         default: 'CURRENT_TIMESTAMP',
                     },
                     {
+                        name: 'taskName',
+                        type: 'varchar',
+                        length: '255',
+                        isNullable: false,
+                    },
+                    {
                         name: 'category',
                         type: 'varchar',
                         length: '255',

@@ -227,6 +227,147 @@ const documentation = JSON.stringify({
       }
     },
     // --------------------------------------------------
+    // --------------------------------------------------
+    "/tasks/create": {
+      "post": {
+        "summary": "Create a new task",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "tags": ["TASKS"],
+        "requestBody": {
+          "required": true,
+          "description": "Create a new task with details",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "taskName": {
+                    "type": "string",
+                    "description": "Name of the task",
+                    "example": "Finish report"
+                  },
+                  "category": {
+                    "type": "string",
+                    "description": "Category of the task",
+                    "example": "Work"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Detailed description of the task",
+                    "example": "Complete the final report for the project"
+                  },
+                  "dueDate": {
+                    "type": "string",
+                    "description": "Due date for the task in YYYY-MM-DD format",
+                    "example": "2023-10-01"
+                  },
+                  "statusName": {
+                    "type": "string",
+                    "description": "Status of the task",
+                    "example": "Pending"
+                  }
+                },
+                "required": ["taskName", "category", "dueDate"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Task created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "code": {
+                      "type": "integer",
+                      "example": 201
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "'Finish report' created successfully"
+                    },
+                    "idCreated": {
+                      "type": "string",
+                      "example": "12345678-1234-1234-1234-123456789abc"
+                    },
+                    "links": {
+                      "type": "object",
+                      "properties": {
+                        "self": {
+                          "type": "string",
+                          "example": "/tasks/create"
+                        },
+                        "next": {
+                          "type": "string",
+                          "example": "/tasks/list"
+                        },
+                        "prev": {
+                          "type": "string",
+                          "example": "/tasks/create"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict - Task already exists",
+            "content": {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    status: {
+                      type: "string",
+                      example: "error"
+                    },
+                    code: {
+                      type: "integer",
+                      example: 409
+                    },
+                    message: {
+                      type: "string",
+                      example: "'Finish report' already exists"
+                    },
+                    links: {
+                      type: "object",
+                      properties: {
+                        self: {
+                          type: "string",
+                          example: "/tasks/create"
+                        },
+                        next: {
+                          type: "string",
+                          example: "/tasks/list"
+                        },
+                        prev: {
+                          type: "string",
+                          example: "/tasks/create"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    // --------------------------------------------------
+
   }
 });
 

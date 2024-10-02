@@ -78,12 +78,11 @@ const errorHandler = (
     res.status(400).json({
       status: "error",
       statusCode: 400,
-      message: err.errors[0].message,
+      message: `(${err.errors[0].path}) ${err.errors[0].message}`,
       links: {
         self: req.originalUrl,
       }
     });
-    return;
   }
   //------------------------------------------------------------------------
 
