@@ -234,7 +234,7 @@ const documentation = JSON.stringify({
             "BearerAuth": []
           }
         ],
-        "tags": ["TASKS"],
+        "tags": ["TASK"],
         "requestBody": {
           "required": true,
           "content": {
@@ -372,7 +372,7 @@ const documentation = JSON.stringify({
             "BearerAuth": []
           }
         ],
-        "tags": ["TASKS"],
+        "tags": ["TASK"],
         "responses": {
           "200": {
             "description": "Tasks retrieved successfully",
@@ -420,7 +420,7 @@ const documentation = JSON.stringify({
             "BearerAuth": []
           }
         ],
-        "tags": ["TASKS"],
+        "tags": ["TASK"],
         "parameters": [
           {
             "name": "updateId",
@@ -510,6 +510,71 @@ const documentation = JSON.stringify({
       }
     },
     // --------------------------------------------------
+    "/tasks/delete/{deleteId}": {
+    "delete": {
+      "summary": "Delete a task by ID",
+      "security": [
+        {
+          "BearerAuth": []
+        }
+      ],
+      "tags": ["TASK"],
+      "parameters": [
+        {
+          "name": "deleteId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "22f70783-9891-4d64-a08c-c676e385616f"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Task deleted successfully",
+          "content": {
+            "application/json": {
+              "examples": {
+                "successResponse": {
+                  "value": {
+                    "status": "success",
+                    "code": 200,
+                    "message": "successfully deleted",
+                    "links": {
+                      "next": "/tasks/list",
+                      "prev": "/tasks/list"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Task not found",
+          "content": {
+            "application/json": {
+              "examples": {
+                "errorResponse": {
+                  "value": {
+                    "status": "error",
+                    "code": 404,
+                    "message": "task not found",
+                    "links": {
+                      "next": "/tasks/list",
+                      "prev": "/tasks/list"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // --------------------------------------------------
   }
 });
 

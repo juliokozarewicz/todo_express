@@ -13,7 +13,7 @@ export class UpdateTaskController {
             const validatedBody = UpdateTaskValidation.parse({
                 updateId: req.params.updateId,
                 ...req.body,
-              });
+            });
 
             // data object
             const validatedData = {
