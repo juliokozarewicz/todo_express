@@ -1,7 +1,7 @@
 import { StandardResponse } from '../../01_shared/StandardResponse'
 import { AppDataSource } from '../server'
 import { CategoryEntity } from '../a_entities/CategoryEntity'
-import { DeleteCategoryValidationType } from '../d_validations/DeleteCategoryValidation'
+import { DeleteCategoryValidationType } from '../b_validations/DeleteCategoryValidation'
 import { createCustomError } from '../e_middlewares/errorHandler'
 
 export class DeleteCategoryService {
@@ -20,7 +20,7 @@ export class DeleteCategoryService {
 
         if (deleteCategoryResult.affected === 0) {
             throw createCustomError({
-                message: "Category not found",
+                message: "category not found",
                 code: 404,
                 next: "/tasks/category/list-all",
                 prev: "/tasks/category/list-all",

@@ -1,6 +1,6 @@
 import { StandardResponse } from '../../01_shared/StandardResponse'
 import { TaskEntity } from '../a_entities/TaskEntity'
-import { CreateTaskValidationType } from '../d_validations/CreateTaskValidation'
+import { CreateTaskValidationType } from '../b_validations/CreateTaskValidation'
 import { createCustomError } from '../e_middlewares/errorHandler'
 import { AppDataSource } from '../server'
 

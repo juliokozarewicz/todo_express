@@ -2,7 +2,7 @@ import { StandardResponse } from '../../01_shared/StandardResponse'
 import { createCustomError } from '../e_middlewares/errorHandler'
 import { AppDataSource } from '../server'
 import { CategoryEntity } from '../a_entities/CategoryEntity'
-import { CreateCategoryValidationType } from '../d_validations/CreateCategoryValidation'
+import { CreateCategoryValidationType } from '../b_validations/CreateCategoryValidation'
 
 export class CreateCategoryService {
 

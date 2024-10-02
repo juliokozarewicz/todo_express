@@ -1,20 +1,23 @@
 import { NextFunction, Request, Response } from 'express'
-import { CreateCategoryService } from '../b_services/CreateCategoryService'
 import { escape } from 'lodash'
-import { CreateTaskService } from '../b_services/CreateTaskService'
-import { CreateTaskValidation } from '../d_validations/CreateTaskValidation'
+import { UpdateTaskValidation } from '../b_validations/UpdateTaskValidation'
+import { UpdateTaskService } from '../c_services/UpdateTaskService'
 
-export class CreateTaskController {
+export class UpdateTaskController {
 
     async handle(req: Request, res: Response, next: NextFunction): Promise<void> {
 
         try {
-            
+
             // validation
-            const validatedBody =  CreateTaskValidation.parse(req.body)
+            const validatedBody = UpdateTaskValidation.parse({
+                updateId: req.params.updateId,
+                ...req.body,
+              });
 
             // data object
             const validatedData = {
+                updateId: escape(validatedBody.updateId),
                 taskName: escape(validatedBody.taskName),
                 category: escape(validatedBody.category),
                 description: escape(validatedBody.description),
@@ -23,8 +26,8 @@ export class CreateTaskController {
             }
 
             // call execute
-            const createTaskService = new CreateTaskService()
-            const response = await createTaskService.execute(validatedData)
+            const updateTaskService = new UpdateTaskService()
+            const response = await updateTaskService.execute(validatedData)
 
             //response
             res.status(response.code).json(response)

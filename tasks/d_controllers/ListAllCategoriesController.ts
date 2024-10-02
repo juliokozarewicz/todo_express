@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
-import { ListAllCategoriesService } from '../b_services/ListAllCategoriesService'
+import { ListAllCategoriesService } from '../c_services/ListAllCategoriesService'
 
 export class ListAllCategoriesController {
 

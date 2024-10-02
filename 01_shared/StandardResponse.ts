@@ -3,6 +3,7 @@ export interface StandardResponse {
     "code": number,
     "message": string,
     "idCreated"?: string,
+    "idUpdated"?: string,
     "data"?: any[],
     "meta"?: {
         "total"?: number,

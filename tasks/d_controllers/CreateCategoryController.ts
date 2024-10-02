@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
-import { CreateCategoryService } from '../b_services/CreateCategoryService'
-import { CreateCategoryValidation } from '../d_validations/CreateCategoryValidation'
+import { CreateCategoryService } from '../c_services/CreateCategoryService'
+import { CreateCategoryValidation } from '../b_validations/CreateCategoryValidation'
 import { escape } from 'lodash'
 
 export class CreateCategoryController {

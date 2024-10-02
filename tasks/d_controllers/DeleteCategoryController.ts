@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
-import { DeleteCategoryService } from '../b_services/DeleteCategoryService'
-import { DeleteCategoryValidation } from '../d_validations/DeleteCategoryValidation'
+import { DeleteCategoryService } from '../c_services/DeleteCategoryService'
+import { DeleteCategoryValidation } from '../b_validations/DeleteCategoryValidation'
 import { escape } from 'lodash'
 
 export class DeleteCategoryController {
