@@ -37,14 +37,11 @@ const errorHandler = (
 
   // create custom error
   //------------------------------------------------------------------------
-  if (
-    err.name === 'CustomErrorHandler' &&
-    err.code < 500
-  ) {
+  if (err.name === 'CustomErrorHandler') {
     res.status(err.code).json({
       status: "error",
       statusCode: err.code,
-      message: err.message || "bad request",
+      message: err.message,
       links: {
         self: req.originalUrl,
         next: err.next,
@@ -57,9 +54,7 @@ const errorHandler = (
 
   // create syntax error
   //------------------------------------------------------------------------
-  if (
-    err instanceof SyntaxError
-  ) {
+  if (err instanceof SyntaxError) {
     res.status(400).json({
       status: "error",
       statusCode: 400,

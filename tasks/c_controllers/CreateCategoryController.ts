@@ -5,20 +5,21 @@ import { escape } from 'lodash'
 
 export class CreateCategoryController {
 
-    async handle(req: Request, res: Response, next: NextFunction): Promise<void> {
+    async handle(
+        req: Request,
+        res: Response,
+        next: NextFunction
+    ): Promise<void> {
 
         try {
-
-            // data init
-            const validatedData = {
-                categoryName: ''
-            }
 
             // validation
             const validatedBody =  CreateCategoryValidation.parse(req.body)
 
-            // assembled data
-            validatedData.categoryName = escape(validatedBody.categoryName)
+            // data init
+            const validatedData = {
+                categoryName: escape(validatedBody.categoryName)
+            }
 
             // call execute
             const createCategoryService = new CreateCategoryService()
