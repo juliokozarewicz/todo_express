@@ -366,16 +366,74 @@ const documentation = JSON.stringify({
     // --------------------------------------------------
     "/tasks/list": {
       "get": {
-        "summary": "List all tasks",
+        "summary": "List all tasks based on provided filters",
         "security": [
           {
             "BearerAuth": []
           }
         ],
         "tags": ["TASK"],
+        "parameters": [
+          {
+            "name": "taskname",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "My Task"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "Work"
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "This is a task description"
+            }
+          },
+          {
+            "name": "initduedate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2023-10-01"
+            }
+          },
+          {
+            "name": "endduedate",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2023-10-31"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "Completed"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Tasks retrieved successfully",
+            "description": "Data received successfully",
             "content": {
               "application/json": {
                 "examples": {
@@ -386,12 +444,12 @@ const documentation = JSON.stringify({
                       "message": "data received successfully",
                       "data": [
                         {
-                          "id": "1",
-                          "taskName": "Example Task",
-                          "category": "Finance",
-                          "description": "This is an example task.",
-                          "dueDate": "2024-10-01",
-                          "statusName": "Pending"
+                          "id": "22f70783-9891-4d64-a08c-c676e385616f",
+                          "taskName": "My Task",
+                          "category": "Work",
+                          "description": "This is a task description",
+                          "dueDate": "2023-10-01T00:00:00Z",
+                          "statusName": "Completed"
                         }
                       ],
                       "meta": {
@@ -407,7 +465,7 @@ const documentation = JSON.stringify({
                 }
               }
             }
-          }
+          },
         }
       }
     },

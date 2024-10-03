@@ -36,12 +36,12 @@ export class ListAllTasksService {
         if (validatedData.initduedate || validatedData.endduedate) {
             const conditions: string[] = [];
             const parameters: { [key: string]: any } = {};
-        
+
             if (validatedData.initduedate) {
                 conditions.push('task.dueDate >= :initDueDate');
                 parameters.initDueDate = new Date(validatedData.initduedate);
             }
-        
+
             if (validatedData.endduedate) {
                 conditions.push('task.dueDate <= :endDueDate');
                 parameters.endDueDate = new Date(validatedData.endduedate);
