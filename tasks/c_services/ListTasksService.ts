@@ -13,37 +13,43 @@ export class ListAllTasksService {
         //-------------------------------------------------------------------------
         const TaskyRepository = AppDataSource.getRepository(TaskEntity)
 
-        const queryBuilder = TaskyRepository.createQueryBuilder('task');
+        const queryBuilder = TaskyRepository.createQueryBuilder('task')
 
         if (validatedData.taskname) {
             queryBuilder.andWhere(
                 'LOWER(task.taskName) = LOWER(:taskName)',
                 { taskName: validatedData.taskname }
-            );
+            )
         }
         if (validatedData.category) {
             queryBuilder.andWhere(
                 'LOWER(task.category) = LOWER(:category)',
                 { category: validatedData.category }
-            );
+            )
         }
         if (validatedData.description) {
             queryBuilder.andWhere(
                 'LOWER(task.description) = LOWER(:description)',
                 { description: validatedData.description }
-            );
+            )
         }
-        if (validatedData.duedate) {
+        if (validatedData.initduedate) {
             queryBuilder.andWhere(
-                'task.dueDate = :dueDate',
-                { dueDate: new Date(validatedData.duedate) }
-            );
+                'task.dueDate >= :dueDate',
+                { dueDate: new Date(validatedData.initduedate) }
+            )
+        }
+        if (validatedData.endduedate) {
+            queryBuilder.andWhere(
+                'task.dueDate <= :dueDate',
+                { dueDate: new Date(validatedData.endduedate) }
+            )
         }
         if (validatedData.status) {
             queryBuilder.andWhere(
                 'LOWER(task.statusName) = LOWER(:statusName)',
                 { statusName: validatedData.status }
-            );
+            )
         }
 
         const existingTask = await queryBuilder
@@ -55,7 +61,7 @@ export class ListAllTasksService {
                 'task.dueDate',
                 'task.statusName'
             ])
-            .getMany();
+            .getMany()
         //-------------------------------------------------------------------------
 
         return {

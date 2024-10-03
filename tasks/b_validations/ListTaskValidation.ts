@@ -29,7 +29,14 @@ export const ListTaskValidation = z.object({
         )
         .optional(),
 
-    duedate: z.string()
+    initduedate: z.string()
+        .regex(/^\d{4}-\d{2}-\d{2}$/, "must be in the format YYYY-MM-DD")
+        .refine(date => !isNaN(Date.parse(date)), {
+            message: "must be a valid date",
+        })
+        .optional(),
+    
+    endduedate: z.string()
         .regex(/^\d{4}-\d{2}-\d{2}$/, "must be in the format YYYY-MM-DD")
         .refine(date => !isNaN(Date.parse(date)), {
             message: "must be a valid date",

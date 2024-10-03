@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express'
 import { ListAllTasksService } from '../c_services/ListTasksService'
-import { ListTaskValidation } from '../b_validations/ListTaskValidation';
+import { ListTaskValidation } from '../b_validations/ListTaskValidation'
 import { escape } from 'lodash'
-import { object } from 'zod';
+import { object } from 'zod'
 
 export class ListTasksController {
 
@@ -16,18 +16,18 @@ export class ListTasksController {
 
             // clean query
             //----------------------------------------------------------------
-            const queryAll = req.query;
+            const queryAll = req.query
 
             const cleanedQuery = Object.fromEntries(
                 Object.entries(queryAll).map(
                     ([key, value]) => [key, value || undefined]
                 )
-            );
+            )
             //----------------------------------------------------------------
 
             // validation (ZOD)
             //----------------------------------------------------------------
-            const validatingData = ListTaskValidation.parse(cleanedQuery);
+            const validatingData = ListTaskValidation.parse(cleanedQuery)
             //----------------------------------------------------------------
 
             // data object (escape)
@@ -36,7 +36,8 @@ export class ListTasksController {
                 taskname: escape(validatingData.taskname),
                 category: validatingData.category,
                 description: validatingData.description,
-                duedate: validatingData.duedate,
+                initduedate: validatingData.initduedate,
+                endduedate: validatingData.endduedate,
                 status: validatingData.status
             }
             //----------------------------------------------------------------
