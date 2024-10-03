@@ -34,7 +34,6 @@ export const ListTaskValidation = z.object({
         .refine(date => !isNaN(Date.parse(date)), {
             message: "must be a valid date",
         })
-        .transform(date => new Date(date))
         .optional(),
 
     status: z.string()

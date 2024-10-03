@@ -15,30 +15,42 @@ export class ListTasksController {
         try {
 
             // clean query
+            //----------------------------------------------------------------
             const queryAll = req.query;
 
             const cleanedQuery = Object.fromEntries(
-                Object.entries(queryAll).map(([key, value]) => [key, value || undefined])
+                Object.entries(queryAll).map(
+                    ([key, value]) => [key, value || undefined]
+                )
             );
+            //----------------------------------------------------------------
 
             // validation (ZOD)
+            //----------------------------------------------------------------
             const validatingData = ListTaskValidation.parse(cleanedQuery);
+            //----------------------------------------------------------------
 
             // data object (escape)
+            //----------------------------------------------------------------
             const validatedData = {
-                taskname: validatingData.taskname ? escape(validatingData.taskname) : undefined,
-                category: validatingData.category ? escape(validatingData.category) : undefined,
-                description: validatingData.description ? escape(validatingData.description) : undefined,
-                duedate: validatingData.duedate ? new Date(validatingData.duedate) : undefined,
-                status: validatingData.status ? escape(validatingData.status) : undefined
+                taskname: escape(validatingData.taskname),
+                category: validatingData.category,
+                description: validatingData.description,
+                duedate: validatingData.duedate,
+                status: validatingData.status
             }
+            //----------------------------------------------------------------
 
             // call execute
+            //----------------------------------------------------------------
             const listAllTasksService = new ListAllTasksService()
             const response = await listAllTasksService.execute(validatedData)
+            //----------------------------------------------------------------
 
             //response
+            //----------------------------------------------------------------
             res.status(response.code).json(response)
+            //----------------------------------------------------------------
 
         } catch (error) {
             next(error)

@@ -10,15 +10,12 @@ export class CreateCategoryService {
         validatedData:CreateCategoryValidationType
     ): Promise<StandardResponse> {
 
-        // typography
-        const categoryNameCase = validatedData.categoryName.toLowerCase()
-
         // database operations
         //-------------------------------------------------------------------------
         const categoryRepository = AppDataSource.getRepository(CategoryEntity)
 
         const existingCategory = await categoryRepository.findOne({
-            where: { category: categoryNameCase }
+            where: { category: validatedData.categoryName }
         })
 
         if (existingCategory) {
@@ -30,14 +27,14 @@ export class CreateCategoryService {
             })
         }
 
-        const newCategory = categoryRepository.create({ category: categoryNameCase })
+        const newCategory = categoryRepository.create({ category: validatedData.categoryName })
         await categoryRepository.save(newCategory)
         //-------------------------------------------------------------------------
 
         return {
             "status": 'success',
             "code": 201,
-            "message": `'${categoryNameCase}' created successfully`,
+            "message": `'${validatedData.categoryName}' created successfully`,
             "idCreated": `${newCategory.id}`,
             "links": {
                 "self": '/tasks/category/create',

@@ -13,23 +13,49 @@ export class ListAllTasksService {
         //-------------------------------------------------------------------------
         const TaskyRepository = AppDataSource.getRepository(TaskEntity)
 
-        const existingTask = await TaskyRepository.find({
-            where: {
-                taskName: validatedData.taskname,
-                category: validatedData.category,
-                description: validatedData.description,
-                dueDate: validatedData.duedate,
-                statusName: validatedData.status
-            },
-            select: [
-                'id',
-                'taskName',
-                'category',
-                'description',
-                'dueDate',
-                'statusName'
-            ],
-        })
+        const queryBuilder = TaskyRepository.createQueryBuilder('task');
+
+        if (validatedData.taskname) {
+            queryBuilder.andWhere(
+                'LOWER(task.taskName) = LOWER(:taskName)',
+                { taskName: validatedData.taskname }
+            );
+        }
+        if (validatedData.category) {
+            queryBuilder.andWhere(
+                'LOWER(task.category) = LOWER(:category)',
+                { category: validatedData.category }
+            );
+        }
+        if (validatedData.description) {
+            queryBuilder.andWhere(
+                'LOWER(task.description) = LOWER(:description)',
+                { description: validatedData.description }
+            );
+        }
+        if (validatedData.duedate) {
+            queryBuilder.andWhere(
+                'task.dueDate = :dueDate',
+                { dueDate: new Date(validatedData.duedate) }
+            );
+        }
+        if (validatedData.status) {
+            queryBuilder.andWhere(
+                'LOWER(task.statusName) = LOWER(:statusName)',
+                { statusName: validatedData.status }
+            );
+        }
+
+        const existingTask = await queryBuilder
+            .select([
+                'task.id',
+                'task.taskName',
+                'task.category',
+                'task.description',
+                'task.dueDate',
+                'task.statusName'
+            ])
+            .getMany();
         //-------------------------------------------------------------------------
 
         return {
