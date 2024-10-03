@@ -33,24 +33,30 @@ export class ListAllTasksService {
                 { description: validatedData.description }
             )
         }
-        if (validatedData.initduedate) {
-            queryBuilder.andWhere(
-                'task.dueDate >= :dueDate',
-                { dueDate: new Date(validatedData.initduedate) }
-            )
-        }
-        if (validatedData.endduedate) {
-            queryBuilder.andWhere(
-                'task.dueDate <= :dueDate',
-                { dueDate: new Date(validatedData.endduedate) }
-            )
-        }
+        if (validatedData.initduedate || validatedData.endduedate) {
+            const conditions: string[] = [];
+            const parameters: { [key: string]: any } = {};
+        
+            if (validatedData.initduedate) {
+                conditions.push('task.dueDate >= :initDueDate');
+                parameters.initDueDate = new Date(validatedData.initduedate);
+            }
+        
+            if (validatedData.endduedate) {
+                conditions.push('task.dueDate <= :endDueDate');
+                parameters.endDueDate = new Date(validatedData.endduedate);
+            }
+
+            queryBuilder.andWhere(conditions.join(' AND '), parameters);
+        }        
         if (validatedData.status) {
             queryBuilder.andWhere(
                 'LOWER(task.statusName) = LOWER(:statusName)',
                 { statusName: validatedData.status }
             )
         }
+
+        queryBuilder.orderBy('task.dueDate', 'ASC');
 
         const existingTask = await queryBuilder
             .select([
