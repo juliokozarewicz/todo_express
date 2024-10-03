@@ -14,7 +14,13 @@ export class ListAllTasksService {
         const TaskyRepository = AppDataSource.getRepository(TaskEntity)
 
         const existingTask = await TaskyRepository.find({
-            where: {},
+            where: {
+                taskName: validatedData.taskname,
+                category: validatedData.category,
+                description: validatedData.description,
+                dueDate: validatedData.duedate,
+                statusName: validatedData.status
+            },
             select: [
                 'id',
                 'taskName',

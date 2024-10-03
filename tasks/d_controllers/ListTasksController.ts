@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express'
 import { ListAllTasksService } from '../c_services/ListTasksService'
 import { ListTaskValidation } from '../b_validations/ListTaskValidation';
 import { escape } from 'lodash'
+import { object } from 'zod';
 
 export class ListTasksController {
 
@@ -13,16 +14,23 @@ export class ListTasksController {
 
         try {
 
+            // clean query
+            const queryAll = req.query;
+
+            const cleanedQuery = Object.fromEntries(
+                Object.entries(queryAll).map(([key, value]) => [key, value || undefined])
+            );
+
             // validation (ZOD)
-            const validatedBody = ListTaskValidation.parse(req.params);
+            const validatingData = ListTaskValidation.parse(cleanedQuery);
 
             // data object (escape)
             const validatedData = {
-                taskname: validatedBody.taskname ? escape(validatedBody.taskname) : undefined,
-                category: validatedBody.category ? escape(validatedBody.category) : undefined,
-                description: validatedBody.description ? escape(validatedBody.description) : undefined,
-                duedate: validatedBody.duedate ? new Date(validatedBody.duedate) : undefined,
-                status: validatedBody.status ? escape(validatedBody.status) : undefined
+                taskname: validatingData.taskname ? escape(validatingData.taskname) : undefined,
+                category: validatingData.category ? escape(validatingData.category) : undefined,
+                description: validatingData.description ? escape(validatingData.description) : undefined,
+                duedate: validatingData.duedate ? new Date(validatingData.duedate) : undefined,
+                status: validatingData.status ? escape(validatingData.status) : undefined
             }
 
             // call execute
