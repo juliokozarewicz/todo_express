@@ -1,4 +1,4 @@
-import { StandardResponse } from '../../01_shared/StandardResponse'
+import { StandardResponse } from '../f_utils/StandardResponse'
 import { AppDataSource } from '../server'
 import { createCustomError } from '../e_middlewares/errorHandler'
 import { DeleteTaskValidationType } from '../b_validations/DeleteTaskValidation'

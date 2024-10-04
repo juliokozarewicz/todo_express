@@ -1,4 +1,4 @@
-import { StandardResponse } from '../../01_shared/StandardResponse'
+import { StandardResponse } from '../f_utils/StandardResponse'
 import { TaskEntity } from '../a_entities/TaskEntity'
 import { ListTaskValidationType } from '../b_validations/ListTaskValidation'
 import { AppDataSource } from '../server'

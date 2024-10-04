@@ -1,4 +1,4 @@
-import { StandardResponse } from '../../01_shared/StandardResponse'
+import { StandardResponse } from '../f_utils/StandardResponse'
 import { createCustomError } from '../e_middlewares/errorHandler'
 import { AppDataSource } from '../server'
 import { CategoryEntity } from '../a_entities/CategoryEntity'
