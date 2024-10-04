@@ -6,7 +6,7 @@ import "reflect-metadata"
 import { DataSource, DataSourceOptions } from "typeorm"
 import errorHandler from "./e_middlewares/errorHandler"
 import { rateLimiter } from "./e_middlewares/rateLimiter"
-const packageJson = require('./package.json');
+const cors = require('cors');
 
 // load '.env'
 //----------------------------------------------------------------------
@@ -17,6 +17,13 @@ config({ path: path.resolve(__dirname, './.env') });
 //----------------------------------------------------------------------
 const app = express();
 const PORT = process.env.SERVER_PORT;
+
+// cors (authorized domain)
+const corsOptions = {
+  gateway: 'http://localhost:3000',
+  documentation: 'http://localhost:3100',
+};
+app.use(cors(corsOptions));
 //----------------------------------------------------------------------
 
 // database

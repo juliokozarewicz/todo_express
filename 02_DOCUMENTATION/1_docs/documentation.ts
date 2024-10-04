@@ -1,5 +1,8 @@
 const packageJson = require('../package.json');
 
+// domains and ports 
+const tasks_domain = "http://localhost:3200"
+
 const documentation = JSON.stringify({
   // configs
   "openapi": "3.0.0",
@@ -35,6 +38,9 @@ const documentation = JSON.stringify({
           }
         ],
         "tags": ["[TASKS] CATEGORY"],
+        servers: [
+          { url: tasks_domain}
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -87,6 +93,9 @@ const documentation = JSON.stringify({
           }
         ],
         "tags": ["[TASKS] CATEGORY"],
+        servers: [
+          { url: tasks_domain}
+        ],
         "responses": {
           "200": {
             "description": "A list of categories retrieved successfully",
@@ -168,6 +177,9 @@ const documentation = JSON.stringify({
           }
         ],
         "tags": ["[TASKS] CATEGORY"],
+        servers: [
+          { url: tasks_domain}
+        ],
         "parameters": [
           {
             "name": "categoryId",
@@ -235,6 +247,9 @@ const documentation = JSON.stringify({
           }
         ],
         "tags": ["[TASKS] TASK"],
+        servers: [
+          { url: tasks_domain}
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -373,6 +388,9 @@ const documentation = JSON.stringify({
           }
         ],
         "tags": ["[TASKS] TASK"],
+        servers: [
+          { url: tasks_domain}
+        ],
         "parameters": [
           {
             "name": "taskname",
@@ -479,6 +497,9 @@ const documentation = JSON.stringify({
           }
         ],
         "tags": ["[TASKS] TASK"],
+        servers: [
+          { url: tasks_domain}
+        ],
         "parameters": [
           {
             "name": "updateId",
@@ -577,6 +598,9 @@ const documentation = JSON.stringify({
           }
         ],
         "tags": ["[TASKS] TASK"],
+        servers: [
+          { url: tasks_domain}
+        ],
         "parameters": [
           {
             "name": "deleteId",
