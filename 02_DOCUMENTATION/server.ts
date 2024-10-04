@@ -6,6 +6,8 @@ import "reflect-metadata"
 import { DataSource, DataSourceOptions } from "typeorm"
 import errorHandler from "./e_middlewares/errorHandler"
 import { rateLimiter } from "./e_middlewares/rateLimiter"
+import swaggerUi from "swagger-ui-express"
+import documentation from "./1_docs/documentation"
 const packageJson = require('./package.json');
 
 // load '.env'
@@ -41,6 +43,39 @@ AppDataSource.initialize()
 
 // middlewares (INIT)
 // =============================================================================
+
+// documentation
+//----------------------------------------------------------------------
+const options = {
+  customCss: `
+    .topbar { display: none; }
+    .swagger-ui { 
+      max-width: 85%; 
+      margin: auto;
+    }
+  `,
+  customSiteTitle: packageJson.name.toUpperCase(),
+};
+
+app.use(
+  "/tasks/docs/swagger",
+  swaggerUi.serve,
+  swaggerUi.setup(
+    JSON.parse(documentation),
+    options
+  )
+)
+
+// redocly
+app.get('/tasks/docs/json', (request, response) => {
+  response.json(JSON.parse(documentation));
+});
+
+app.get('/tasks/docs/redocly', (request, response) => {
+  response.setHeader('Content-Type', 'text/html');
+  return response.sendFile(process.cwd() + '/1_docs/index.html');
+});
+//----------------------------------------------------------------------
 
 // rate limiter
 //----------------------------------------------------------------------
