@@ -9,6 +9,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "strictPropertyInitialization": false,
+    "outDir": "./dist",
+    "rootDir": "./",
     "skipLibCheck": true
   },
   "include": ["**/*"],
