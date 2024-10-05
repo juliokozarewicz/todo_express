@@ -37,8 +37,10 @@ const options = {
       max-width: 85%; 
       margin: auto;
     }
+    .wrapper section { margin-bottom: 50px; }
   `,
   customSiteTitle: packageJson.name.toUpperCase(),
+  
 };
 
 app.use(
