@@ -398,7 +398,6 @@ const documentation = JSON.stringify({
             "required": false,
             "schema": {
               "type": "string",
-              "example": "My Task"
             }
           },
           {
@@ -407,7 +406,6 @@ const documentation = JSON.stringify({
             "required": false,
             "schema": {
               "type": "string",
-              "example": "Work"
             }
           },
           {
@@ -416,7 +414,6 @@ const documentation = JSON.stringify({
             "required": false,
             "schema": {
               "type": "string",
-              "example": "This is a task description"
             }
           },
           {
@@ -426,7 +423,6 @@ const documentation = JSON.stringify({
             "schema": {
               "type": "string",
               "format": "date",
-              "example": "2023-10-01"
             }
           },
           {
@@ -436,7 +432,6 @@ const documentation = JSON.stringify({
             "schema": {
               "type": "string",
               "format": "date",
-              "example": "2023-10-31"
             }
           },
           {
@@ -445,7 +440,6 @@ const documentation = JSON.stringify({
             "required": false,
             "schema": {
               "type": "string",
-              "example": "Completed"
             }
           }
         ],
