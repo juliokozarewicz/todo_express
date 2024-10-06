@@ -1,7 +1,7 @@
 const packageJson = require('../package.json');
 
 // domains and ports 
-const tasks_domain = `${process.env.TASKS_HOST}:${process.env.TASKS_PORT}`
+const tasks_domain = "http://localhost:3300"
 
 const documentation = JSON.stringify({
   // configs

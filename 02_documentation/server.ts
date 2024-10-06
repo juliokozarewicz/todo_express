@@ -1,9 +1,9 @@
+import { config } from 'dotenv';
 import express from "express"
 import path from "path"
 import { rateLimiter } from "./rateLimiter"
 import swaggerUi from "swagger-ui-express"
 import documentation from "./1_docs/documentation"
-import { config } from 'dotenv';
 const packageJson = require('./package.json');
 const cors = require('cors');
 
