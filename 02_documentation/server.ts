@@ -10,17 +10,18 @@ const cors = require('cors');
 // load '.env'
 //----------------------------------------------------------------------
 config({ path: path.resolve(__dirname, './.env') });
+config({ path: path.resolve(__dirname, '../01_nginx/.env') });
 //----------------------------------------------------------------------
 
 // express server
 //----------------------------------------------------------------------
 const app = express();
-const PORT = process.env.SERVER_PORT;
+const PORT = process.env.DOCUMENTATION_PORT;
 
 // cors (authorized domain)
 const corsOptions = {
-  gateway: 'http://localhost:3000',
-  documentation: 'http://localhost:3100',
+  gateway: `${process.env.NGINX_HOST}:${process.env.NGINX_PORT}`,
+  documentation: `${process.env.DOCUMENTATION_HOST}:${process.env.DOCUMENTATION_PORT}`,
 };
 app.use(cors(corsOptions));
 //----------------------------------------------------------------------
