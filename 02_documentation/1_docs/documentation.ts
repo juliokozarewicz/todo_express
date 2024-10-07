@@ -1,9 +1,9 @@
 const packageJson = require('../package.json');
 
 // domains and ports 
-const tasks_domain = "http://localhost:3300"
+const tasks_domain = `${process.env.TASKS_HOST}:${process.env.TASKS_PORT}`
 
-const documentation = JSON.stringify({
+const documentation = {
   // configs
   "openapi": "3.0.0",
   "info": {
@@ -652,6 +652,6 @@ const documentation = JSON.stringify({
     }
     // --------------------------------------------------
   }
-});
+};
 
 export default documentation;
